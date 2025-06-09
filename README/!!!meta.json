@@ -1,0 +1,81 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.63.7",
+	"files": [
+		{
+			"noteId": "bNfnUGu8ptLT",
+			"notePath": [
+				"bNfnUGu8ptLT"
+			],
+			"isClone": false,
+			"title": "README",
+			"notePosition": 290,
+			"prefix": null,
+			"isExpanded": false,
+			"type": "text",
+			"mime": "text/html",
+			"format": "markdown",
+			"dataFileName": "README.md",
+			"noImport": false,
+			"attributes": [],
+			"attachments": [
+				{
+					"attachmentId": "OqpM0cMHAn8Q",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "README_image.png"
+				},
+				{
+					"attachmentId": "NlMdGOgmQoVe",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "1_README_image.png"
+				},
+				{
+					"attachmentId": "Gu5B9bZ70Nen",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "2_README_image.png"
+				},
+				{
+					"attachmentId": "AB2vYrwgqny8",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "3_README_image.png"
+				},
+				{
+					"attachmentId": "3BA9HJjuQTRi",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "4_README_image.png"
+				},
+				{
+					"attachmentId": "EfsHMU7ARJAI",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "5_README_image.png"
+				},
+				{
+					"attachmentId": "fVCdheyh61mk",
+					"title": "image.png",
+					"role": "image",
+					"mime": "image/png",
+					"position": 10,
+					"dataFileName": "6_README_image.png"
+				}
+			]
+		}
+	]
+}

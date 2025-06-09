@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Figure Widgets">
+      <UniqueIdentifier>{be588627-b8ff-4090-a82e-65392a03bab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\Figure2D">
+      <UniqueIdentifier>{d884d62d-232e-475b-9b76-9bb4dbe509fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\Figure3D">
+      <UniqueIdentifier>{dd13e3c7-1a15-4343-9db2-02eda0c0bcf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\Figure3D\OpenGL Files">
+      <UniqueIdentifier>{61f243c0-33ff-40e0-8c5a-16fb2ea8bb60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="backup">
+      <UniqueIdentifier>{26cb636c-e577-4546-8eaf-bd8756d824a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\BasicWidget">
+      <UniqueIdentifier>{c7fab831-4ed4-4141-bfcf-400b2713c2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\SettingWidget">
+      <UniqueIdentifier>{ae963c50-f5a2-4bae-b8e4-0137b57907d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Widgets">
+      <UniqueIdentifier>{d8254d64-653e-4b8b-ac8d-1be63d5b4886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Figure Widgets\FigureInfo">
+      <UniqueIdentifier>{537eb604-86c3-4518-95c9-dd0a21fe4663}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GLFigure3D.cpp">
+      <Filter>Figure Widgets\Figure3D</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="figureInfo.cpp">
+      <Filter>Figure Widgets\FigureInfo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FigureListWidget.h">
+      <Filter>Figure Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="FigureWidget.h">
+      <Filter>Figure Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="GLFigure3D.h">
+      <Filter>Figure Widgets\Figure3D</Filter>
+    </QtMoc>
+    <QtMoc Include="AddCurveWidget.h">
+      <Filter>Figure Widgets\SettingWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="AddFigureWidget.h">
+      <Filter>Figure Widgets\SettingWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="ClickableLabel.h">
+      <Filter>Figure Widgets\BasicWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="ItemWidget.h">
+      <Filter>Figure Widgets\BasicWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDialog.h">
+      <Filter>Figure Widgets\BasicWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="StatusDockWidget.h">
+      <Filter>Figure Widgets\BasicWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="FoldWidget.h">
+      <Filter>Main Widgets</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>Figure Widgets\Figure3D\OpenGL Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Figure Widgets\Figure3D\OpenGL Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interval.h">
+      <Filter>Figure Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Figure2D.h">
+      <Filter>Figure Widgets\Figure2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Figure2DConfig.h">
+      <Filter>Figure Widgets\Figure2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Figure3DContext.h">
+      <Filter>Figure Widgets\Figure3D</Filter>
+    </ClInclude>
+    <ClInclude Include="GLResource.h">
+      <Filter>Figure Widgets\Figure3D</Filter>
+    </ClInclude>
+    <ClInclude Include="FigureBasic.h">
+      <Filter>Figure Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="FigureConfigWidget.h">
+      <Filter>Figure Widgets\SettingWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="CurveConfigWidget.h">
+      <Filter>Figure Widgets\SettingWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="figureInfo.h">
+      <Filter>Figure Widgets\FigureInfo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="修改记录.txt" />
+  </ItemGroup>
+</Project>
