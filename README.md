@@ -1,11 +1,11 @@
 用Qt5实现的轴承计算程序的一部分，用于绘制并管理图形曲线。其中二维曲线是对QtCharts的包装，三维曲线是用Opengl实现的，能够拖动旋转。
 
 <div align=center>
-	<image src="README/drawingsManager.png" width = "40%"/><image src="README/drawingsManagerTest.png" width = "40%"/>
+	<!--<image src="README/drawingsManager.png" width = "40%"/>--><image src="README/drawingsManagerTest.png" width = "40%"/>
 </div>
 
 <div align=center>
-	<image src="README/createDrawing.png" width = "30%"/><image src="README/addCurve.png" width = "30%"/><image src="README/3dDrawing.png" width = "30%"/>
+	<image src="README/createDrawing.png" width = "30%"/><image src="README/addCurve.png" width = "33%"/><image src="README/3dDrawing.png" width = "30%"/>
 </div>
 
 点击载入数据会发送一个信号，设置处理函数可以实现选择文件载入数据，下面是绘图测试的结果。
