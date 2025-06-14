@@ -17,8 +17,88 @@
 #include <QTextCodec>
 using namespace std;
 
-void loadFileDataToFigures(QString str) {
-    printf("%s", str.data());
+void connectTest1(FigureListWidget* figureList, QMainWindow* Form) {
+    QObject::connect(figureList, &FigureListWidget::loadFigureData, Form, [=](BasicFigureData* bfd) {
+        auto commonFigure = figureList->getFigureCommon(bfd);
+        commonFigure->addCurve("testCurve", QColor::fromRgb(100, 0, 0), 3.0);
+        int curveIndex = commonFigure->getCurveNum() - 1;
+        for (int i = 0; i < 500; i++) {
+            double var = i / 10.0;
+            double x = sin(var);
+            double y = cos(var);
+            double z = var / 2;
+            if (bfd->figureType == FigureType::ThreeDimCurveFigure) {
+                commonFigure->addCurveData(curveIndex, { x, y, z }, false);
+            }
+            else {
+                commonFigure->addCurveData(curveIndex, { x, z }, false);
+            }
+        }
+        commonFigure->freshAxisRange(curveIndex);
+    });
+}
+void connectTest2(FigureListWidget* figureList, QMainWindow* Form) {
+    QObject::connect(figureList, &FigureListWidget::loadFigureData, Form, [=](BasicFigureData* bfd) {
+        QWidget* loadDataSetting = new QWidget();
+        QVBoxLayout* contentLayout = new QVBoxLayout(loadDataSetting);
+        loadDataSetting->setLayout(contentLayout);
+
+        QLabel* dirLabel = new QLabel(loadDataSetting);
+        dirLabel->setText("载入数据目录(默认为当前数据保存目录)");
+        QLineEdit* dirEditor = new QLineEdit(loadDataSetting);
+        //dirEditor->setPlaceholderText(this->ui.saveDataDirEditor->placeholderText());
+        //dirEditor->setText(this->ui.saveDataDirEditor->text());
+        contentLayout->addWidget(dirLabel);
+        contentLayout->addWidget(dirEditor);
+
+        MyDialog dialog;
+        dialog.setWindowTitle("设置载入数据目录");
+        dialog.setContentAndButton(loadDataSetting,
+            "设置载入数据目录", "载入", "取消");
+        //设置响应函数
+        QObject::connect(dialog.createButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+        QObject::connect(dialog.createButton, &QPushButton::clicked, Form, [=]() {
+            QString dataDirString;
+            dataDirString = dirEditor->text();
+            printf("%s", dataDirString.data());
+            });
+        QObject::connect(dialog.cancelButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+        QObject::connect(&dialog, &MyDialog::closedRespond, &dialog, &QDialog::accept);
+        dialog.exec();
+        return;
+        });
+}
+void connectTest3(FigureListWidget* figureList, QMainWindow* Form) {
+
+    QObject::connect(figureList, &FigureListWidget::loadFigureData, Form, [=](BasicFigureData* bfd) {
+        auto commonFigure = figureList->getFigureCommon(bfd);
+        commonFigure->addCurve("testCurve", QColor::fromRgb(100, 0, 0), 3.0);
+        int curveIndex = commonFigure->getCurveNum() - 1;
+
+        QTimer *timer = new QTimer(Form);
+        QObject::connect(timer, &QTimer::timeout, Form, [=]() {
+            static int count = 0;
+            count++;
+            if (count > 500) {
+                timer->stop();
+            }
+            double var = count / 5.0;
+            double x = sin(var);
+            double y = cos(var);
+            double z = var / 2;
+
+            if (bfd->figureType == FigureType::ThreeDimCurveFigure) {
+                commonFigure->addCurveData(curveIndex, { x, y, z }, true);
+            }
+            else {
+                commonFigure->addCurveData(curveIndex, { x, z }, true);
+            }
+            });
+        timer->setInterval(50);
+        timer->start();
+        });
+    
+
 }
 
 
@@ -59,54 +139,8 @@ int main(int argc, char* argv[])
     Form->show();
     qDebug() << "add figureListDockWidget over";
 
-    QObject::connect(figureList, &FigureListWidget::loadFigureData, Form, [=](BasicFigureData* bfd) {
-        auto commonFigure = figureList->getFigureCommon(bfd);
-        commonFigure->addCurve("testCurve", QColor::fromRgb(100, 0, 0), 3.0);
-        int curveIndex = commonFigure->getCurveNum() - 1;
-        for (int i = 0; i < 500; i++) {
-            double var = i / 10.0;
-            double x = sin(var);
-            double y = cos(var);
-            double z = var/2;
-            if (bfd->figureType == FigureType::ThreeDimCurveFigure) {
-                commonFigure->addCurveData(curveIndex, { x, y, z }, false);
-            }
-            else {
-                commonFigure->addCurveData(curveIndex, { x, z }, false);
-            }
-        }
-        commonFigure->freshAxisRange(curveIndex);
-        
-        });
-    //QObject::connect(figureList, &FigureListWidget::loadFigureData, Form, [=](BasicFigureData* bfd) {
-    //    QWidget* loadDataSetting = new QWidget();
-    //    QVBoxLayout* contentLayout = new QVBoxLayout(loadDataSetting);
-    //    loadDataSetting->setLayout(contentLayout);
+    connectTest3(figureList, Form);
 
-    //    QLabel* dirLabel = new QLabel(loadDataSetting);
-    //    dirLabel->setText("载入数据目录(默认为当前数据保存目录)");
-    //    QLineEdit* dirEditor = new QLineEdit(loadDataSetting);
-    //    //dirEditor->setPlaceholderText(this->ui.saveDataDirEditor->placeholderText());
-    //    //dirEditor->setText(this->ui.saveDataDirEditor->text());
-    //    contentLayout->addWidget(dirLabel);
-    //    contentLayout->addWidget(dirEditor);
-
-    //    MyDialog dialog;
-    //    dialog.setWindowTitle("设置载入数据目录");
-    //    dialog.setContentAndButton(loadDataSetting,
-    //        "设置载入数据目录", "载入", "取消");
-    //    //设置响应函数
-    //    QObject::connect(dialog.createButton, &QPushButton::clicked, &dialog, &QDialog::accept);
-    //    QObject::connect(dialog.createButton, &QPushButton::clicked, Form, [=]() {
-    //        QString dataDirString;
-    //        dataDirString = dirEditor->text();
-    //        loadFileDataToFigures(dataDirString);
-    //        });
-    //    QObject::connect(dialog.cancelButton, &QPushButton::clicked, &dialog, &QDialog::accept);
-    //    QObject::connect(&dialog, &MyDialog::closedRespond, &dialog, &QDialog::accept);
-    //    dialog.exec();
-    //    return;
-    //});
 
     return a.exec();
 }

@@ -418,8 +418,8 @@ void GLFigure3D::openSetCurveWidget(int index) {
     dialog.resize(defaultAddCurveDialogWidth, defaultAddCurveDialogHeight);
     createButton = dialog.createButton; cancelButton = dialog.cancelButton;
     //按钮事件响应，三种退出方式。
-    connect(dialog.createButton, &QPushButton::clicked, &dialog, &QDialog::accept);
-    connect(dialog.createButton, &QPushButton::clicked, &dialog, [=]() {
+    QObject::connect(dialog.createButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+    QObject::connect(dialog.createButton, &QPushButton::clicked, &dialog, [=]() {
         QColor qcolor(curveSetWidget->colorSelectButton->text());
         this->setCurve(index, curveSetWidget->nameEditor->text()
             , qcolor, curveSetWidget->widthEditor->text().toDouble());
@@ -429,10 +429,10 @@ void GLFigure3D::openSetCurveWidget(int index) {
             curveSetWidget->getDataType(2)
         } };
         });
-    connect(dialog.cancelButton, &QPushButton::clicked, &dialog, &QDialog::accept);
-    connect(dialog.cancelButton, &QPushButton::clicked, curveSetWidget, &QWidget::deleteLater);
-    connect(&dialog, &MyDialog::closedRespond, &dialog, &QDialog::accept);
-    connect(&dialog, &MyDialog::closedRespond, curveSetWidget, &QWidget::deleteLater);
+    QObject::connect(dialog.cancelButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+    QObject::connect(dialog.cancelButton, &QPushButton::clicked, curveSetWidget, &QWidget::deleteLater);
+    QObject::connect(&dialog, &MyDialog::closedRespond, &dialog, &QDialog::accept);
+    QObject::connect(&dialog, &MyDialog::closedRespond, curveSetWidget, &QWidget::deleteLater);
     dialog.exec();
 }
 
