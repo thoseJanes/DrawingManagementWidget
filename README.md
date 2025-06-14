@@ -17,6 +17,6 @@
 支持各种绘图设置。
 
 <div align=center>
-	<image src="README/createDrawing.png" width = "30%"/><image src="README/addCurve.png" width = "33%"/><image src="README/3dDrawing.png" width = "30%"/>
+	<image src="README/createDrawing.png" width = "40%"/><image src="README/addCurve.png" width = "40%"/>
 </div>
 
